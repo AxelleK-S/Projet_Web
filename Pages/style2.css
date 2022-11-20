@@ -1,0 +1,13 @@
+body {
+background-color : white;
+}
+
+#row{
+   height:35px;
+   margin-top : 300px;
+   box-shadow:13px 14px 50px grey;
+}
+
+form{
+align : center;
+}

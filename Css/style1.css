@@ -1,0 +1,22 @@
+body {
+background-color : white;
+}
+
+footer{
+    height:35px;
+    width:100%;
+    background:transparent;
+    text-align:center;
+    float:left;
+    margin-top:450px;
+    box-shadow:13px 14px 50px grey;
+}
+
+#row{
+   height:35px;
+   margin-top : 300px;
+}
+
+form{
+align : center;
+}
