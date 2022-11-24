@@ -24,10 +24,10 @@ include("fonction.php");
                   <div class="card" style="border-radius: 1rem;">
                     <div class="row g-0 ">
                       <div class="col-md-6 col-lg-5 d-none d-md-block">
-                        <img src="images/img3.jpg"  alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+                        <img src="images/img3.jpg"  alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;height:99%;" />
                       </div>
                       <div class="col-md-6 col-lg-7 d-flex align-items-center">
-                          <div class="card-body p-4 p-lg-5 text-black">
+                          <div class="card-body p-4 p-lg-7 text-black">
 
                          <form method="post" action="fonction.php">
 
@@ -53,7 +53,7 @@ include("fonction.php");
                                   <label class="form-check-label" for="Check">jaccepte l utilisation des cookies</label>
                                </div>
                                <div class="pt-1 mb-4">
-                                   <button type="submit" class="btn btn-info">Envoyer</button>
+                                   <button type="submit" class="btn btn-dark btn-lg btn-block">Envoyer</button>
                                </div>
 
                             </form>
