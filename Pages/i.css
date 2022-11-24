@@ -9,7 +9,7 @@ background-color : white ;
 }
 
 #test{
-background-color : lightskyblue ;
+background-image:url(images/img1.jpg);
 }
 
 input invalid {
@@ -19,4 +19,3 @@ border: 2px dashed red;
 input invalid focus {
 background-image: linear-gradient(pink,lightgreen);
 }
-
