@@ -14,8 +14,13 @@ function verification(){
 include("fonction.php");
 }?>
 
-        <div class ="container" style="background-image: url(images/img3.jpg);">
-              <h1 align="center"> Bienvenue sur notre site portfolio</h1>
+        <div class ="container" style="background-image: linear-gradient(60deg, #E21143, #FFB03A);
+                                background-clip: text;
+                                color: Black;
+                                font-family: sans-serif;
+                                "
+                                >
+              <h1 align="center" > Bienvenue sur notre site portfolio</h1>
         </div>
 
         <div class="container py-5 h-100">
@@ -48,7 +53,7 @@ include("fonction.php");
                                           <input type="password" class="form-control form-control-lg" id="Password" minlength="8" name="password" required>
                                           <div id="PasswordHelp" class="form-text">Votre mot de passe doit avoir minimum 8 caractères.</div>
                                   </div>
-                                <div class="form-outline mb-4 form-check">
+                                <div class="form-outline form-check">
                                   <input type="checkbox" class="form-check-input" id="Check" required>
                                   <label class="form-check-label" for="Check">jaccepte l utilisation des cookies</label>
                                </div>
