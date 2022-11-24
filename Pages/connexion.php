@@ -6,6 +6,21 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" type="text/css" href="i.css">
+    <!-- Font Awesome -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css"
+  rel="stylesheet"
+/>
     <title>Connexion</title>
 </head>
 <body>
@@ -46,12 +61,11 @@ include("fonction.php");
                                  <div class="form-outline mb-4">
                                       <label for="Email" class="form-label">Email address</label>
                                       <input type="email" class="form-control form-control-lg" id="Email" aria-describedby="emailHelp" placeholder="Habitant@gmail.com" name="email" required>
-                                      <div id="emailHelp" class="form-text">Nous nallons jamais utiliser votre adresse à des fins autres.</div>
                                   </div>
                                   <div class="form-outline mb-4">
                                           <label for="Password" class="form-label">Password</label>
                                           <input type="password" class="form-control form-control-lg" id="Password" minlength="8" name="password" required>
-                                          <div id="PasswordHelp" class="form-text">Votre mot de passe doit avoir minimum 8 caractères.</div>
+                                          
                                   </div>
                                 <div class="form-outline form-check">
                                   <input type="checkbox" class="form-check-input" id="Check" required>
@@ -74,5 +88,10 @@ include("fonction.php");
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <!-- MDB -->
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"
+></script>
 </body>
 </html>
