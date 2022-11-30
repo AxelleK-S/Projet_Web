@@ -29,13 +29,26 @@ function verification(){
 include("fonction.php");
 }?>
 
-        <div class ="container" style="background-image: linear-gradient(60deg, #E21143, #FFB03A);
+        <div class ="container" id="toolbar" style="background-image: linear-gradient(60deg, #8bdde8, #8be8d7);
                                 background-clip: text;
                                 color: Black;
                                 font-family: sans-serif;
+                                position: fixed;
+                                left: 65px;
+                                top: 0px;
+                                z-index: 1000;
                                 "
                                 >
-              <h1 align="center" > Bienvenue sur notre site portfolio</h1>
+              <h1 align="center" > Bienvenue sur notre site portfolio
+                  <a href="#apropos" style="color :black;
+                                            font-size: medium;
+                                             padding-left: 155px;
+                                              transition: color 1s;" >A propos</a>
+                  <a href="#contact" style="color :black;
+                                            font-size: medium;
+                                             padding-left: 75px;
+                                             transition: color 1s;" >Contactez nous</a>
+              </h1>
         </div>
 
         <div class="container py-5 h-100">
@@ -44,7 +57,7 @@ include("fonction.php");
                   <div class="card" style="border-radius: 1rem;">
                     <div class="row g-0 ">
                       <div class="col-md-6 col-lg-5 d-none d-md-block">
-                        <img src="images/img3.jpg"  alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;height:99%;" />
+                        <img src="Images/work.jpg" alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;height:99%;" />
                       </div>
                       <div class="col-md-6 col-lg-7 d-flex align-items-center">
                           <div class="card-body p-4 p-lg-7 text-black">
@@ -52,7 +65,7 @@ include("fonction.php");
                          <form method="post" action="fonction.php">
 
                            <div class="d-flex align-items-center mb-3 pb-1">
-                              <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
+                              <i class="fas fa-cubes fa-2x me-3" style="color: #8af2cc;"></i>
                               <span class="h1 fw-bold mb-0">Logo</span>
                           </div>
 
@@ -83,6 +96,37 @@ include("fonction.php");
             </div>
         </div>
       </div>
+
+<div class="container py-5 h-100" id="apropos" style="font-style: italic;
+                                               font-family: 'Comic Sans MS',serif;
+                                               font-palette: dark;">
+Nous sommes une entreprise de prestation de services offrant des solutions web et logiciel
+</div>
+
+<div class="container py-5 h-100" id="contact" style="font-style: normal;
+                                               font-family: 'Comic Sans MS',serif;
+                                               font-palette: dark;
+                                               background-color: #a4f5d7">
+    <div class="card h-100 w-100" style="background-color: #8af2cc">
+        <div class="d-flex mb-3 pb-1">
+            <i class="fas fa-phone fa-2x me-3" style="color: black;"></i>
+            <span class="h6 fw-normal mb-0">Tel : 691983314</span>
+        </div>
+
+        <div class="d-flex mb-3 pb-1">
+            <i class="fas fa-mail-bulk fa-2x me-3" style="color: black;"></i>
+            <span class="h6 fw-normal mb-0">axelle.kwamou@2026.ucac-icam.com</span>
+            <span class="h6 fw-normal mb-0">, daryl.kuitche@2023.ucac-icam.com</span>
+        </div>
+
+        <div class="d-flex mb-3 pb-1">
+            <i class="fas fa-address-card fa-2x me-3" style="color: black;"></i>
+            <span class="h6 fw-normal mb-0">Ucac-Icam par Yansoki</span>
+        </div>
+
+    </div>
+
+</div>
 
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

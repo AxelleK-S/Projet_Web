@@ -18,7 +18,7 @@ $db = new PDO('mysql:host=localhost;dbname=portfolio','root','');
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@5.0.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
     <link rel="stylesheet" type="text/css" href="style2.css">
     <!-- Font Awesome -->
@@ -64,27 +64,53 @@ $project = RecuperationProject($db);
 
 $nom= $users['nom'];
 $prenom = $users['prenom'];
-if (isset($perform)){
-$html = $perform['html5'];
-$css = $perform['css3'];
-$js = $perform['javascript'];
-$php = $perform['php'];
-$mysql = $perform['mysql'];
+if (empty($perform)){
+    $html = "0";
+    $css = "0";
+    $js = "0";
+    $php = "0";
+    $mysql = "0";
 } else {
-$html = "0";
-$css = "0";
-$js = "0";
-$php = "0";
-$mysql = "0";
+    $html = $perform['html5'];
+    $css = $perform['css3'];
+    $js = $perform['javascript'];
+    $php = $perform['php'];
+    $mysql = $perform['mysql'];
 }
-//echo $html;
 ?>
+<div class="portfolio">
 
 <!-- nom et prenom -->
-<div class="container">
-    <a class="navbar-brand text-uppercase fw-bold" href="">
+    <div class ="container" id="toolbar" style="background-image: linear-gradient(60deg, black, grey);
+                                background-clip: text;
+                                color: Black;
+                                font-family: sans-serif;
+                                position: fixed;
+                                left: 65px;
+                                top: 0px;
+                                z-index: 1000;
+                                "
+    >
+    <a class="navbar-brand text-uppercase fw-bold" style="color: white">
     <?php echo($nom." ".$prenom); ?>
 </a>
+
+        <a href="#expertise" style="color :floralwhite;
+                                            font-size: medium;
+                                             padding-left: 155px;
+                                              transition: color 1s;" >Mon expertise</a>
+        <a href="#projet" style="color :floralwhite;
+                                            font-size: medium;
+                                             padding-left: 75px;
+                                             transition: color 1s;" >Mes projets</a>
+        <a href="#apropos" style="color :floralwhite;
+                                            font-size: medium;
+                                             padding-left: 155px;
+                                              transition: color 1s;" >A propos</a>
+        <a href="#contact" style="color :floralwhite;
+                                            font-size: medium;
+                                             padding-left: 75px;
+                                             transition: color 1s;" >Contactez nous</a>
 </div>
 
 <div class="container">
@@ -98,7 +124,7 @@ $mysql = "0";
     <div class="row">
         <div class="col-6 offset-3">
 
-<div id="carouselExampleIndicator" class="carousel slide" data-bs-ride="carousel" >
+<div id="carouselExampleIndicator" class="carousel slide" data-bs-ride="carousel" style="width: 100%">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -106,13 +132,13 @@ $mysql = "0";
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="Images/caroussel1.jpg" data-bs-interval="60" class="d-block w-100 h-100" alt="Error">
+            <img src="Images/apprentissage2.jpg" data-bs-interval="60" class="d-block w-100 h-100" alt="Error">
         </div>
         <div class="carousel-item">
-            <img src="Images/caroussel2.png" data-bs-interval="60" class="d-block w-100 h-100" alt="Error">
+            <img src="Images/it.jpg" data-bs-interval="60" class="d-block w-100 h-100" alt="Error">
         </div>
         <div class="carousel-item">
-            <img src="Images/caroussel3.jpg"  data-bs-interval="60" class="d-block w-100 h-100" alt="Error">
+            <img src="Images/IT2.jpg"  data-bs-interval="60" class="d-block w-100 h-100" alt="Error">
         </div>
     </div>
 </div>
@@ -197,7 +223,6 @@ MYSQL
     </div>
 </div>
 <p></p>
-
 <div class="container">
     <div class="row">
         <div class="col">
@@ -208,8 +233,17 @@ MYSQL
             <footer><a href="contacteznous.html" class="btn btn-secondary">Contactez-nous</a> </footer>
         </div>
 
+        <div class="col">
+            <button class="btn btn-secondary" id="getPDF" onclick="getPdf()">Exporter en pdf</button>
+        </div>
+
 </div>
 </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.4/jspdf.plugin.autotable.min.js"></script>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="file.js"></script>

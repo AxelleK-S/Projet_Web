@@ -4,12 +4,12 @@ currentcolor;
 }
 
 body{
-background-color : white ;
+background-color : lightskyblue ;
 
 }
 
 #test{
-background-image:url(images/img1.jpg);
+background-color : lightskyblue ;
 }
 
 input invalid {
@@ -19,3 +19,7 @@ border: 2px dashed red;
 input invalid focus {
 background-image: linear-gradient(pink,lightgreen);
 }
+a:hover{
+    color : white;
+}
+
