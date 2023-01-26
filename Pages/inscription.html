@@ -7,15 +7,35 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- Font Awesome -->
+    <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+            rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+            rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css"
+            rel="stylesheet"
+    />
     <title>Inscription</title>
 </head>
 <body>
 <div class ="container">
- <h1> Bienvenue sur notre site portfolio</h1>
+    <i class="fas fa-leaf fa-2x me-3" style="color: black;"></i>
+ <span class="h1 fw-bold mb-0"> Portfolio_Maker</span>
 </div>
-<div class="container">
-    <div class="row">
-        <div class="col-6">
+<div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+            <div class="card" style="border-radius: 1rem;">
+                <div class="row g-0 ">
+                    <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                        <div class="card-body p-4 p-lg-7 text-black">
      <form method="post" action="inscris.php">
          <div class="mb-3">
         <label for="Name1" class="form-label">Entrer votre nom</label>
@@ -228,14 +248,19 @@
         <input type="checkbox" class="form-check-input" id="Check" required>
         <label class="form-check-label" for="Check">j'accepte les conditions générales</label>
     </div>
-    <button type="submit" class="btn btn-primary">Envoyer</button>
+    <button type="submit" class="btn btn-dark btn-lg btn-block">Envoyer</button>
 
 
 
 </form>
         </div>
-        <div class="col-6" id="test">
-            <p id="texte"><i>Connectez-vous pour consulter votre CV</i></p>
+    </div>
+                    <div class="col-md-6 col-lg-5 d-none d-md-block" style="background-image: linear-gradient(60deg, white,#8be8d7); text-align: center">
+                       <h2>Inscription</h2>
+                        <h4 class="pt-5">Entrez vos informations et inscrivez-vous pour générer votre portfolio</h4>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

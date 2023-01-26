@@ -1,0 +1,115 @@
+<html>
+<head>
+<title>connexion.php</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #a9b7c6;}
+.s1 { color: #cc7832;}
+.s2 { color: #9876aa; font-style: italic;}
+.s3 { color: #6a8759;}
+.s4 { color: #808080;}
+.s5 { color: #a9b7c6;}
+.s6 { color: #ffc66d;}
+.s7 { color: #6897bb; font-style: italic;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+connexion.php</font>
+</center></td></tr></table>
+<pre>
+<span class="s1">&lt;!</span><span class="s2">DOCTYPE html</span><span class="s1">&gt;</span>
+<span class="s1">&lt;</span><span class="s2">html lang</span><span class="s1">=</span><span class="s3">&quot;en&quot;</span><span class="s1">&gt;</span>
+<span class="s1">&lt;</span><span class="s2">head</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;</span><span class="s2">meta charset</span><span class="s1">=</span><span class="s3">&quot;UTF-8&quot;</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;</span><span class="s2">meta name</span><span class="s1">=</span><span class="s3">&quot;viewport&quot; </span><span class="s2">content</span><span class="s1">=</span><span class="s3">&quot;width=device=width, initial-scale-1&quot;</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;</span><span class="s2">link href</span><span class="s1">=</span><span class="s3">&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css&quot; </span><span class="s2">rel</span><span class="s1">=</span><span class="s3">&quot;stylesheet&quot; </span><span class="s2">integrity</span><span class="s1">=</span><span class="s3">&quot;sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC&quot; </span><span class="s2">crossorigin</span><span class="s1">=</span><span class="s3">&quot;anonymous&quot;</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;</span><span class="s2">link rel</span><span class="s1">=</span><span class="s3">&quot;stylesheet&quot; </span><span class="s2">href</span><span class="s1">=</span><span class="s3">&quot;https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css&quot;</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;</span><span class="s2">link rel</span><span class="s1">=</span><span class="s3">&quot;stylesheet&quot; </span><span class="s2">type</span><span class="s1">=</span><span class="s3">&quot;text/css&quot; </span><span class="s2">href</span><span class="s1">=</span><span class="s3">&quot;i.css&quot;</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;</span><span class="s2">title</span><span class="s1">&gt;</span><span class="s2">Connexion</span><span class="s1">&lt;/</span><span class="s2">title</span><span class="s1">&gt;</span>
+<span class="s1">&lt;/</span><span class="s2">head</span><span class="s1">&gt;</span>
+<span class="s1">&lt;</span><span class="s2">body</span><span class="s1">&gt;</span>
+
+<span class="s1">&lt;?</span><span class="s2">php</span>
+<span class="s4">//Fonction pour ajouter les info dans la base de données (inscription)</span>
+<span class="s1">try</span>
+<span class="s5">{</span>
+	<span class="s5">$db </span><span class="s1">= new </span><span class="s0">PDO(</span><span class="s3">'mysql:host=localhost;dbname=portfolio;charset=utf8'</span><span class="s5">, </span><span class="s3">'root'</span><span class="s5">, </span><span class="s3">''</span><span class="s5">);</span>
+<span class="s5">}</span>
+<span class="s1">catch </span><span class="s5">(Exception $e)</span>
+<span class="s5">{</span>
+        <span class="s1">die</span><span class="s5">(</span><span class="s3">'Erreur : ' </span><span class="s1">. </span><span class="s5">$e</span><span class="s1">-&gt;</span><span class="s6">getMessage</span><span class="s5">());</span>
+<span class="s5">}</span>
+
+
+<span class="s4">// verification motDePasse</span>
+<span class="s1">function </span><span class="s6">verification</span><span class="s5">($db){</span>
+<span class="s1">&lt;?</span><span class="s2">php</span>
+<span class="s5">$sqlQuery </span><span class="s1">= </span><span class="s3">'</span><span class="s1">SELECT * FROM </span><span class="s3">Connexion </span><span class="s1">where </span><span class="s3">courriel</span><span class="s1">= </span><span class="s3">:nom'</span><span class="s5">;</span>
+<span class="s5">$usersStatement </span><span class="s1">= </span><span class="s5">$db</span><span class="s1">-&gt;</span><span class="s6">prepare</span><span class="s5">($sqlQuery);</span>
+<span class="s5">$usersStatement</span><span class="s1">-&gt;</span><span class="s6">execute</span><span class="s5">(array(</span>
+    <span class="s3">'nom' </span><span class="s1">=&gt; </span><span class="s5">$_POST[</span><span class="s3">'email'</span><span class="s5">],</span>
+<span class="s5">));</span>
+<span class="s5">$users </span><span class="s1">= </span><span class="s5">$usersStatement</span><span class="s1">-&gt;</span><span class="s6">fetch</span><span class="s5">();</span>
+
+<span class="s1">if </span><span class="s5">($_POST[</span><span class="s3">'password'</span><span class="s5">] </span><span class="s1">== </span><span class="s5">$users[</span><span class="s3">'motDePasse'</span><span class="s5">])</span><span class="s1">: ?&gt;</span>
+
+<span class="s1">&lt;</span><span class="s2">script</span><span class="s1">&gt; </span><span class="s0">alert(</span><span class="s3">&quot;connexion reussi&quot;</span><span class="s5">)</span><span class="s1">&lt;/</span><span class="s2">script</span><span class="s1">&gt;</span>
+<span class="s1">&lt;?</span><span class="s2">php </span><span class="s1">else: ?&gt;</span>
+<span class="s1">&lt;</span><span class="s2">script</span><span class="s1">&gt; </span><span class="s0">alert(</span><span class="s3">&quot;connexion échoué&quot;</span><span class="s5">)</span><span class="s1">&lt;/</span><span class="s2">script</span><span class="s1">&gt;</span>
+<span class="s1">&lt;?</span><span class="s2">php </span><span class="s1">endif</span><span class="s5">; </span><span class="s1">?&gt;</span>
+<span class="s0">} 
+</span><span class="s1">?&gt;</span>
+
+<span class="s1">&lt;</span><span class="s2">div </span><span class="s1">class =</span><span class="s3">&quot;container&quot;</span><span class="s1">&gt;</span>
+ <span class="s1">&lt;</span><span class="s2">h1 align</span><span class="s1">=</span><span class="s3">&quot;center&quot;</span><span class="s1">&gt; </span><span class="s2">Bienvenue sur notre site portfolio</span><span class="s1">&lt;/</span><span class="s2">h1</span><span class="s1">&gt;</span>
+<span class="s1">&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span>
+<span class="s1">&lt;</span><span class="s2">div </span><span class="s1">class=</span><span class="s3">&quot;container&quot;</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;</span><span class="s2">div </span><span class="s1">class=</span><span class="s3">&quot;row&quot;</span><span class="s1">&gt;</span>
+        <span class="s1">&lt;</span><span class="s2">div </span><span class="s1">class=</span><span class="s3">&quot;col-6&quot;</span><span class="s1">&gt;</span>
+     <span class="s1">&lt;</span><span class="s2">form method</span><span class="s1">=</span><span class="s3">&quot;post&quot; </span><span class="s2">action</span><span class="s1">=</span><span class="s3">&quot;fonction.php&quot; </span><span class="s2">onsubmit</span><span class="s1">=</span><span class="s0">verification($db)</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;</span><span class="s2">div </span><span class="s1">class=</span><span class="s3">&quot;mb-3&quot;</span><span class="s1">&gt;</span>
+        <span class="s1">&lt;</span><span class="s2">p</span><span class="s1">&gt; &lt;/</span><span class="s2">p</span><span class="s1">&gt;</span>
+<span class="s1">&lt;</span><span class="s2">p</span><span class="s1">&gt; &lt;/</span><span class="s2">p</span><span class="s1">&gt;</span>
+        <span class="s1">&lt;</span><span class="s2">p</span><span class="s1">&gt;</span><span class="s2">Veuillez entrer vos identifiants</span><span class="s1">&lt;/</span><span class="s2">p</span><span class="s1">&gt;</span>
+        <span class="s1">&lt;</span><span class="s2">label </span><span class="s1">for=</span><span class="s3">&quot;Email&quot; </span><span class="s1">class=</span><span class="s3">&quot;form-label&quot;</span><span class="s1">&gt;</span><span class="s2">Email address</span><span class="s1">&lt;/</span><span class="s2">label</span><span class="s1">&gt;</span>
+        <span class="s1">&lt;</span><span class="s2">input type</span><span class="s1">=</span><span class="s3">&quot;email&quot; </span><span class="s1">class=</span><span class="s3">&quot;form-control&quot; </span><span class="s2">id</span><span class="s1">=</span><span class="s3">&quot;Email&quot; </span><span class="s2">aria</span><span class="s1">-</span><span class="s2">describedby</span><span class="s1">=</span><span class="s3">&quot;emailHelp&quot; </span><span class="s2">placeholder</span><span class="s1">=</span><span class="s3">&quot;Habitant@gmail.com&quot; </span><span class="s2">name</span><span class="s1">=</span><span class="s3">&quot;email&quot; </span><span class="s2">required</span><span class="s1">&gt;</span>
+        <span class="s1">&lt;</span><span class="s2">div id</span><span class="s1">=</span><span class="s3">&quot;emailHelp&quot; </span><span class="s1">class=</span><span class="s3">&quot;form-text&quot;</span><span class="s1">&gt;</span><span class="s2">Nous nallons jamais utiliser votre adresse à des fins autres</span><span class="s1">.&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;</span><span class="s2">div </span><span class="s1">class=</span><span class="s3">&quot;mb-3&quot;</span><span class="s1">&gt;</span>
+        <span class="s1">&lt;</span><span class="s2">label </span><span class="s1">for=</span><span class="s3">&quot;Password&quot; </span><span class="s1">class=</span><span class="s3">&quot;form-label&quot;</span><span class="s1">&gt;</span><span class="s2">Password</span><span class="s1">&lt;/</span><span class="s2">label</span><span class="s1">&gt;</span>
+        <span class="s1">&lt;</span><span class="s2">input type</span><span class="s1">=</span><span class="s3">&quot;password&quot; </span><span class="s1">class=</span><span class="s3">&quot;form-control&quot; </span><span class="s2">id</span><span class="s1">=</span><span class="s3">&quot;Password&quot; </span><span class="s2">minlength</span><span class="s1">=</span><span class="s3">&quot;8&quot; </span><span class="s2">name</span><span class="s1">=</span><span class="s3">&quot;password&quot; </span><span class="s2">required</span><span class="s1">&gt;</span>
+        <span class="s1">&lt;</span><span class="s2">div id</span><span class="s1">=</span><span class="s3">&quot;PasswordHelp&quot; </span><span class="s1">class=</span><span class="s3">&quot;form-text&quot;</span><span class="s1">&gt;</span><span class="s2">Votre mot de passe doit avoir minimum </span><span class="s7">8 </span><span class="s2">caractères</span><span class="s1">.&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;</span><span class="s2">div </span><span class="s1">class=</span><span class="s3">&quot;mb-3 form-check&quot;</span><span class="s1">&gt;</span>
+        <span class="s1">&lt;</span><span class="s2">input type</span><span class="s1">=</span><span class="s3">&quot;checkbox&quot; </span><span class="s1">class=</span><span class="s3">&quot;form-check-input&quot; </span><span class="s2">id</span><span class="s1">=</span><span class="s3">&quot;Check&quot; </span><span class="s2">required</span><span class="s1">&gt;</span>
+        <span class="s1">&lt;</span><span class="s2">label </span><span class="s1">class=</span><span class="s3">&quot;form-check-label&quot; </span><span class="s1">for=</span><span class="s3">&quot;Check&quot;</span><span class="s1">&gt;</span><span class="s2">jaccepte l utilisation des cookies</span><span class="s1">&lt;/</span><span class="s2">label</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;</span><span class="s2">button type</span><span class="s1">=</span><span class="s3">&quot;submit&quot; </span><span class="s1">class=</span><span class="s3">&quot;btn btn-primary&quot;</span><span class="s1">&gt;</span><span class="s2">Envoyer</span><span class="s1">&lt;/</span><span class="s2">button</span><span class="s1">&gt;</span>
+
+<span class="s1">&lt;/</span><span class="s2">form</span><span class="s1">&gt;</span>
+        <span class="s1">&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span>
+        <span class="s1">&lt;</span><span class="s2">div </span><span class="s1">class=</span><span class="s3">&quot;col-6&quot; </span><span class="s2">id</span><span class="s1">=</span><span class="s3">&quot;test&quot;</span><span class="s1">&gt;</span>
+            <span class="s1">&lt;</span><span class="s2">p id</span><span class="s1">=</span><span class="s3">&quot;texte&quot;</span><span class="s1">&gt;&lt;</span><span class="s2">i</span><span class="s1">&gt;</span><span class="s2">Connectez</span><span class="s1">-</span><span class="s2">vous pour consulter votre CV</span><span class="s1">&lt;/</span><span class="s2">i</span><span class="s1">&gt;&lt;/</span><span class="s2">p</span><span class="s1">&gt;</span>
+        <span class="s1">&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span>
+
+<span class="s1">&lt;/</span><span class="s2">div</span><span class="s1">&gt;</span>
+
+<span class="s1">&lt;</span><span class="s2">script</span><span class="s1">&gt;</span>
+<span class="s1">function </span><span class="s6">popupBasique</span><span class="s5">(page) {</span>
+  <span class="s2">window</span><span class="s1">.</span><span class="s0">open(</span><span class="s2">page</span><span class="s5">);</span>
+<span class="s5">} </span><span class="s1">&lt;/</span><span class="s2">script</span><span class="s1">&gt;</span>
+
+<span class="s1">&lt;</span><span class="s2">script type</span><span class="s1">=</span><span class="s3">&quot;text/javascript&quot; </span><span class="s2">src</span><span class="s1">=</span><span class="s3">&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js&quot;</span><span class="s1">&gt;&lt;/</span><span class="s2">script</span><span class="s1">&gt;</span>
+
+    <span class="s1">&lt;</span><span class="s2">script src</span><span class="s1">=</span><span class="s3">&quot;https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js&quot; </span><span class="s2">integrity</span><span class="s1">=</span><span class="s3">&quot;sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p&quot; </span><span class="s2">crossorigin</span><span class="s1">=</span><span class="s3">&quot;anonymous&quot;</span><span class="s1">&gt;&lt;/</span><span class="s2">script</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;</span><span class="s2">script src</span><span class="s1">=</span><span class="s3">&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js&quot; </span><span class="s2">integrity</span><span class="s1">=</span><span class="s3">&quot;sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF&quot; </span><span class="s2">crossorigin</span><span class="s1">=</span><span class="s3">&quot;anonymous&quot;</span><span class="s1">&gt;&lt;/</span><span class="s2">script</span><span class="s1">&gt;</span>
+
+
+<span class="s1">&lt;/</span><span class="s2">body</span><span class="s1">&gt;</span>
+<span class="s1">&lt;/</span><span class="s2">html</span><span class="s1">&gt;</span></pre>
+</body>
+</html>

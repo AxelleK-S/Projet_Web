@@ -22,6 +22,22 @@
   rel="stylesheet"
 />
     <title>Connexion</title>
+    <style>
+        .custom-checkbox input[type="checkbox"],
+        .custom-checkbox .checked {
+            display: none;
+        }
+
+        .custom-checkbox input[type="checkbox"]:checked ~ .checked
+        {
+            display: inline-block;
+        }
+
+        .custom-checkbox input[type="checkbox"]:checked ~ .unchecked
+        {
+            display: none;
+        }
+    </style>
 </head>
 <body>
 <?php
@@ -30,7 +46,6 @@ include("fonction.php");
 }?>
 
         <div class ="container" id="toolbar" style="background-image: linear-gradient(60deg, #8bdde8, #8be8d7);
-                                background-clip: text;
                                 color: Black;
                                 font-family: sans-serif;
                                 position: fixed;
@@ -39,7 +54,7 @@ include("fonction.php");
                                 z-index: 1000;
                                 "
                                 >
-              <h1 align="center" > Bienvenue sur notre site portfolio
+              <h1 align="center" > Portfolio_Maker
                   <a href="#apropos" style="color :black;
                                             font-size: medium;
                                              padding-left: 155px;
@@ -56,28 +71,49 @@ include("fonction.php");
                 <div class="col col-xl-10">
                   <div class="card" style="border-radius: 1rem;">
                     <div class="row g-0 ">
-                      <div class="col-md-6 col-lg-5 d-none d-md-block">
-                        <img src="Images/work.jpg" alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;height:99%;" />
-                      </div>
                       <div class="col-md-6 col-lg-7 d-flex align-items-center">
                           <div class="card-body p-4 p-lg-7 text-black">
 
                          <form method="post" action="fonction.php">
 
                            <div class="d-flex align-items-center mb-3 pb-1">
-                              <i class="fas fa-cubes fa-2x me-3" style="color: #8af2cc;"></i>
-                              <span class="h1 fw-bold mb-0">Logo</span>
+                              <i class="fas fa-feather fa-2x me-3" style="color: #8af2cc;"></i>
+                              <span class="h1 fw-bold mb-0">Connexion</span>
                           </div>
 
                           <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Veuillez entrer vos identifiants</h5>
 
-                                 <div class="form-outline mb-4">
+                                 <div class="form-outline mb-4 ">
                                       <label for="Email" class="form-label">Email address</label>
                                       <input type="email" class="form-control form-control-lg" id="Email" aria-describedby="emailHelp" placeholder="Habitant@gmail.com" name="email" required>
                                   </div>
                                   <div class="form-outline mb-4">
                                           <label for="Password" class="form-label">Password</label>
                                           <input type="password" class="form-control form-control-lg" id="Password" minlength="8" name="password" required>
+                                      <label class="custom-checkbox">
+                                          <input type="checkbox" id="button"/>
+                                          <i class="fa fa-fw fa fa-eye unchecked"></i>
+                                          <i class="fa fa-fw fa fa-eye-slash checked"></i>
+                                      </label>
+
+
+
+                                      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                                      <script type="text/javascript">
+                                          $(document).ready(function() {
+                                              var checkbox = $("#button");
+                                              var password = $("#Password");
+                                              checkbox.click(function() {
+                                                  if(checkbox.prop("checked")) {
+                                                      password.attr("type", "text");
+                                                      checkbox.attr("class","fas fa-eye-slash");
+                                                  } else {
+                                                      password.attr("type", "password");
+                                                      checkbox.attr("class","fas fa-eye");
+                                                  }
+                                              });
+                                          });
+                                      </script>
                                           
                                   </div>
                                 <div class="form-outline form-check">
@@ -100,31 +136,17 @@ include("fonction.php");
 <div class="container py-5 h-100" id="apropos" style="font-style: italic;
                                                font-family: 'Comic Sans MS',serif;
                                                font-palette: dark;">
-Nous sommes une entreprise de prestation de services offrant des solutions web et logiciel
+Connectez-vous et accéder à votre portfolio personnalisé
+    Téléchargez-le et utilisez le à volonté
 </div>
 
 <div class="container py-5 h-100" id="contact" style="font-style: normal;
-                                               font-family: 'Comic Sans MS',serif;
-                                               font-palette: dark;
-                                               background-color: #a4f5d7">
-    <div class="card h-100 w-100" style="background-color: #8af2cc">
-        <div class="d-flex mb-3 pb-1">
-            <i class="fas fa-phone fa-2x me-3" style="color: black;"></i>
-            <span class="h6 fw-normal mb-0">Tel : 691983314</span>
-        </div>
-
-        <div class="d-flex mb-3 pb-1">
-            <i class="fas fa-mail-bulk fa-2x me-3" style="color: black;"></i>
-            <span class="h6 fw-normal mb-0">axelle.kwamou@2026.ucac-icam.com</span>
-            <span class="h6 fw-normal mb-0">, daryl.kuitche@2023.ucac-icam.com</span>
-        </div>
-
-        <div class="d-flex mb-3 pb-1">
-            <i class="fas fa-address-card fa-2x me-3" style="color: black;"></i>
-            <span class="h6 fw-normal mb-0">Ucac-Icam par Yansoki</span>
-        </div>
-
-    </div>
+                                               font-family: Arial,serif;
+                                               color: white;
+                                               text-align: center;
+                                               background-color: grey">
+    <i class="bi-badge-cc" style="color: black;"></i>
+    axelle.kwamou@2026.ucac-icam.com, darul.kuitche@2023.ucac-icam.com
 
 </div>
 

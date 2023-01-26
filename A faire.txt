@@ -1,0 +1,21 @@
+GLOBAL : Site portfolio 
+but : affiche ton portfolio en foction de tes informations d'inscription
+
+DETAILS A AVOIR :
+
+- page accueil
+- page connexion (formulaire)
+- page inscription/enregistrement (formulaire)
+- page présentation avec portfolio
+- page contactez nous (formulaire)
+- page en savoir plus/ a propos
+
+Sur la page présentation il doit y avoir :
+- Un carroussel (Bootstrap); 
+- div design bootstrap 5 (overflow)
+
+Il faut :
+-connexion PDO avec mysql;
+-gestion données mysql et php;
+-une base de données connectée au site
+- utilisation de jQuery et Bootstrap 5

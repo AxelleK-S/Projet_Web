@@ -77,12 +77,16 @@ if (empty($perform)){
     $php = $perform['php'];
     $mysql = $perform['mysql'];
 }
+
+
+require_once 'C:\xampp\htdocs\projet\vendor/autoload.php'; //we've assumed that the dompdf directory is in the same directory as your PHP file. If not, adjust your autoload.inc.php i.e. first line of code accordingly.
+
 ?>
-<div class="portfolio">
+<div class="portfolio" id="Portfolio">
 
 <!-- nom et prenom -->
-    <div class ="container" id="toolbar" style="background-image: linear-gradient(60deg, black, grey);
-                                background-clip: text;
+    <div class ="container" id="toolbar" style="background-image: linear-gradient(60deg, white, white);
+
                                 color: Black;
                                 font-family: sans-serif;
                                 position: fixed;
@@ -91,99 +95,108 @@ if (empty($perform)){
                                 z-index: 1000;
                                 "
     >
-    <a class="navbar-brand text-uppercase fw-bold" style="color: white">
-    <?php echo($nom." ".$prenom); ?>
+    <a class="navbar-brand text-uppercase fw-bold" style="color: black">
+    Portfolio_Maker
 </a>
 
-        <a href="#expertise" style="color :floralwhite;
+        <a class="btn btn-close-white px-2" href="#expertise" style="color :floralwhite;
                                             font-size: medium;
-                                             padding-left: 155px;
-                                              transition: color 1s;" >Mon expertise</a>
-        <a href="#projet" style="color :floralwhite;
+                                            padding-left: 65px;
+
+                                             " >Mon expertise</a>
+        <a class="btn btn-close-white" href="#projet" style="color :floralwhite;
                                             font-size: medium;
-                                             padding-left: 75px;
-                                             transition: color 1s;" >Mes projets</a>
-        <a href="#apropos" style="color :floralwhite;
+                                            padding-left: 65px;
+                                            " >Mes projets</a>
+        <a class="btn btn-close-white" href="#apropos" style="color :floralwhite;
                                             font-size: medium;
-                                             padding-left: 155px;
-                                              transition: color 1s;" >A propos</a>
-        <a href="#contact" style="color :floralwhite;
+                                            padding-left: 65px;
+                                             " >A propos</a>
+        <a class="btn btn-close-white px-2" href="#contact" style="color :floralwhite;
                                             font-size: medium;
-                                             padding-left: 75px;
-                                             transition: color 1s;" >Contactez nous</a>
+                                            padding-left: 260px;
+                                            " >Contactez nous</a>
+        <i class="bi-download px-2" href="#contact"  style="padding-left: 65px" type="button" onclick="window.print()">
+                                            </i>
 </div>
 
-<div class="container">
-    Mon expertise
-</br> Mes compétences en développement
-</div>
-<p></p>
-
-<!--Défilement-->
-<div class="container">
+    <!--Informations personnelles-->
+<div class="container pt-5">
     <div class="row">
-        <div class="col-6 offset-3">
+        <div class="col-2">
+            <i class="bi-person-circle" style="color: black;"></i>
+            <?php echo($nom." ".$prenom); ?>
+        </div>
 
-<div id="carouselExampleIndicator" class="carousel slide" data-bs-ride="carousel" style="width: 100%">
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="Images/apprentissage2.jpg" data-bs-interval="60" class="d-block w-100 h-100" alt="Error">
+        <div class="col-3">
+            <i class="bi-phone" style="color: black;"></i>
+            <span class="fw-normal mb-0"> Téléphone : 6 91 98 33 14</span>
         </div>
-        <div class="carousel-item">
-            <img src="Images/it.jpg" data-bs-interval="60" class="d-block w-100 h-100" alt="Error">
+
+        <div class="col-3">
+            <i class="bi-building" style="color: black;"></i>
+            <span class="fw-normal mb-0"> Adresse : Bonaberi-Douala</span>
         </div>
-        <div class="carousel-item">
-            <img src="Images/IT2.jpg"  data-bs-interval="60" class="d-block w-100 h-100" alt="Error">
+
+        <div class="col-4">
+            <i class="bi-envelope" style="color: black;"></i>
+            <span class="fw-normal mb-0"> E-mail : axelle.kwamou@2026.ucac-icam.com</span>
         </div>
     </div>
-</div>
-        </div>
-    </div>
+
 </div>
 <p></p>
+
+<!--About Me-->
+<div class="container">
+    <div class="p-lg-2" style="background-image: linear-gradient(60deg, #8bdde8, #8be8d7)">
+        <i class="bi-person-fill" style="color: black;"></i>
+        <span class="fw-normal mb-0"> About Me</span>
+    </div>
+    <p class="pt-3">I'm a student in Ucac-Icam intitute loving ICT i want to become a DevOps and improve myself in different languages involves
+    such as : HTML5, CSS3, JavaScript, PHP, MySQL
+    <br>I also study how to use frameworks like Bootstrap, Lavarel, etc </p>
+</div>
+
 <!-- competences en developpement-->
 
-<div class="container">
-    HTML5
-<div class="progress">
-    <div class="progress-bar" role="progressbar" style="width: <?php echo($html).'%'?>" aria-valuenow="<?php echo($html)?>" aria-valuemin="0" aria-valuemax="100"></div>
+<div class="container" id="expertise">
+   <i class="bi-basket"></i> HTML5
+<div class="progress mt-3">
+    <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: <?php echo($html).'%'?>" aria-valuenow="<?php echo($html)?>" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
-<p></p>
+
 
     CSS3
-<div class="progress">
-    <div class="progress-bar" role="progressbar" style="width: <?php echo($css).'%'?>" aria-valuenow="<?php echo($css)?>" aria-valuemin="0" aria-valuemax="100"></div>
+<div class="progress mt-3">
+    <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: <?php echo($css).'%'?>" aria-valuenow="<?php echo($css)?>" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
-<p></p>
+
 
     JAVASCRIPT
-<div class="progress">
-    <div class="progress-bar" role="progressbar" style="width: <?php echo($js).'%'?>" aria-valuenow="<?php echo($js)?>" aria-valuemin="0" aria-valuemax="100"></div>
+<div class="progress mt-3">
+    <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: <?php echo($js).'%'?>" aria-valuenow="<?php echo($js)?>" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
-<p></p>
 
     PHP
-<div class="progress">
-    <div class="progress-bar" role="progressbar" style="width: <?php echo($php).'%'?>" aria-valuenow="<?php echo($php)?>" aria-valuemin="0" aria-valuemax="100"></div>
+<div class="progress mt-3">
+    <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: <?php echo($php).'%'?>" aria-valuenow="<?php echo($php)?>" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
-<p></p>
+
 
 MYSQL
-<div class="progress">
-    <div class="progress-bar" role="progressbar" style="width: <?php echo($mysql)?>" aria-valuenow="<?php echo($mysql).'%'?>" aria-valuemin="0" aria-valuemax="100"></div>
+<div class="progress mt-3">
+    <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: <?php echo($mysql)?>" aria-valuenow="<?php echo($mysql).'%'?>" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
-<p></p>
-
 </div>
 
 <!-- liste des projets -->
-<div class="container">
-    <div class="row">
+<div class="container mt-3">
+    <div style="background-image: linear-gradient(60deg, #8bdde8, #8be8d7)">
+        <i class="bi-person-fill" style="color: black;"></i>
+        <span class="fw-normal mb-0"> My Project</span>
+    </div>
+    <div class="row mt-3" id="projet">
 
         <div class="col">
 <div class="card">
@@ -191,7 +204,6 @@ MYSQL
     <div class="card-body">
         <h5 class="card-title">Projet 1</h5>
         <p class="card-text">Description</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
 </div>
         </div>
@@ -202,51 +214,112 @@ MYSQL
     <div class="card-body">
         <h5 class="card-title">Projet 2</h5>
         <p class="card-text">Description</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
 </div>
         </div>
 
          <div class="col">
-<div class="card">
+<div class="card" >
     <img src="Images/work.jpg" class="card-img-top" alt="Not Found">
     <div class="card-body">
         <h5 class="card-title">Projet 3</h5>
         <p class="card-text">Description</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
 </div>
         </div>
-
-
-
     </div>
+
+    <div class="row mt-3" id="projet">
+
+        <div class="col">
+            <div class="card">
+                <img src="Images/img1.jpg" class="card-img-top" alt="Not Found">
+                <div class="card-body">
+                    <h5 class="card-title">Projet 1</h5>
+                    <p class="card-text">Description</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card">
+                <img src="Images/img2.jpg" class="card-img-top" alt="Not Found">
+                <div class="card-body">
+                    <h5 class="card-title">Projet 2</h5>
+                    <p class="card-text">Description</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card" >
+                <img src="Images/img3.jpg" class="card-img-top" alt="Not Found">
+                <div class="card-body">
+                    <h5 class="card-title">Projet 3</h5>
+                    <p class="card-text">Description</p>
+                </div>
+            </div>
+        </div>
+
 </div>
-<p></p>
-<div class="container">
+</div>
+
+</div>
+</div>
+
+<div class="container mt-3" id="contact">
     <div class="row">
-        <div class="col">
-    <footer> <a href="ensavoirplus.html" class="btn btn-secondary">En Savoir Plus</a> </footer>
+        <div class="col-5">
+            <img src="Images/localisation.png">
         </div>
 
-        <div class="col">
-            <footer><a href="contacteznous.html" class="btn btn-secondary">Contactez-nous</a> </footer>
+        <div class="col-7">
+            <h1>Contactez nous</h1>
+            <form method="post">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" aria-describedby="email-help">
+                    <div id="email-help" class="form-text">Nous ne revendrons pas votre email.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Votre message</label>
+                    <textarea class="form-control" placeholder="Exprimez vous" id="message" name="textarea"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+            </form>
         </div>
 
-        <div class="col">
-            <button class="btn btn-secondary" id="getPDF" onclick="getPdf()">Exporter en pdf</button>
-        </div>
+    </div>
+</div>
+
+<?php
+ini_set("smtp_port","25");
+if (isset($_POST['textarea'])) {
+    $retour = mail('axelle.kwamou@2026.ucac-icam.com', 'Contact depuis le site portfolio', $_POST['textarea'], 'From: webmaster@monsite.fr' . "\r\n" . 'Reply-to: ' . $_POST['email']);
+    if ($retour)
+        echo '<p>Votre message a bien été envoyé.</p>';
+}
+
+?>
+
+<div class="container py-5 h-100 mt-3" id="apropos" style="font-style: normal;
+                                               font-family: Arial,serif;
+                                               color: white;
+                                               text-align: center;
+                                               background-color: grey">
+    <i class="bi-badge-cc-fill" style="color: black;"></i>
+    axelle.kwamou@2026.ucac-icam.com, darul.kuitche@2023.ucac-icam.com
 
 </div>
-</div>
-</div>
+
+<script type="text/php" src="genPDF.php"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.4/jspdf.plugin.autotable.min.js"></script>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script type="text/javascript" src="file.js"></script>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

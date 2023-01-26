@@ -1,0 +1,12 @@
+Faire une page traitement pour la page connexion qui va fouiller dans 
+la base de données les informations nécessaire et les mettre dans une 
+variable puis les envoyer à la page présentation (aver un lien URL)
+Contenant une fonction pour extraire les données de la base de données
+
+Faire une page de traitement pour la page d'inscription qui va inscrire 
+les données entrées dans la base de données puis va importer la page
+traitement1 (à travers Include) pour envoyer les données vers présentation
+
+Si possible faire une page de connexion à la base de données avec deux
+fonctions de remplissage de la base (une pour les login et l'autre pour les
+info de compétences  à inserer dans traitement2)
